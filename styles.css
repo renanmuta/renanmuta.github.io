@@ -175,6 +175,19 @@ p {
   margin-top: 46px;
 }
 
+.numbered {
+  counter-reset: paper;
+}
+
+.numbered .paper {
+  counter-increment: paper;
+}
+
+.numbered .paper-line::before {
+  content: "[" counter(paper) "] ";
+  font-weight: 600;
+}
+
 .paper {
   margin-bottom: 22px;
 }
