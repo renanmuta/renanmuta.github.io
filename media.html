@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script>
+    (function () {
+      const stored = localStorage.getItem('theme');
+      const preferredDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = stored || (preferredDark ? 'dark' : 'light');
+    })();
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Media coverage featuring Renan Muta.">
+  <title>Media · Renan Muta</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell nav">
+      <a class="site-name" href="index.html">Renan Muta</a>
+      <nav aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a class="active" href="media.html">Media</a>
+        <a href="Renan_Muta_CV.pdf" target="_blank" rel="noopener">CV</a>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch theme">
+          <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.4 15.5A8.5 8.5 0 0 1 8.5 3.6 8.5 8.5 0 1 0 20.4 15.5z"></path>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-shell page">
+    <h1 class="page-title">Media</h1>
+
+    <section class="media-list">
+      <article class="media-item">
+        <a class="media-title" href="https://valor.globo.com/brasil/noticia/2023/08/15/dado-do-bc-da-animo-para-resultado-do-pib-do-2otri.ghtml" target="_blank" rel="noopener">
+          Dado do BC dá ânimo para resultado do PIB do 2º tri
+        </a>
+        <p class="media-meta">Valor Econômico · August 15, 2023</p>
+      </article>
+
+      <article class="media-item">
+        <a class="media-title" href="https://www.wsj.com/articles/china-reopening-could-boost-latin-america-growth-11675017263" target="_blank" rel="noopener">
+          China Reopening Could Boost Latin America Growth
+        </a>
+        <p class="media-meta">The Wall Street Journal · January 29, 2023</p>
+      </article>
+
+      <article class="media-item">
+        <a class="media-title" href="https://www.bloomberg.com/news/articles/2022-09-22/brazil-presidential-election-likely-won-in-runoff-goldman-says" target="_blank" rel="noopener">
+          Brazil Presidential Election Likely Won in Runoff, Goldman Says
+        </a>
+        <p class="media-meta">Bloomberg · September 22, 2022</p>
+      </article>
+
+      <article class="media-item">
+        <a class="media-title" href="https://ca.finance.yahoo.com/news/2-mexico-headline-inflation-rebounds-122633423.html?guccounter=1" target="_blank" rel="noopener">
+          Mexico headline inflation rebounds in early September, core eases
+        </a>
+        <p class="media-meta">Reuters via Yahoo Finance · December 22, 2022</p>
+      </article>
+
+      <article class="media-item">
+        <a class="media-title" href="https://economia.uol.com.br/noticias/reuters/2022/09/22/goldman-sachs-ve-forte-deterioracao-fiscal-em-2023-com-promessas-de-gastos-de-lula-e-bolsonaro.htm" target="_blank" rel="noopener">
+          Goldman Sachs vê forte deterioração fiscal em 2023 com promessas de gastos de Lula e Bolsonaro
+        </a>
+        <p class="media-meta">Reuters via UOL · September 22, 2022</p>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const button = document.querySelector('.theme-toggle');
+      const stored = localStorage.getItem('theme');
+      const preferredDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initial = stored || (preferredDark ? 'dark' : 'light');
+
+      function setTheme(theme) {
+        root.dataset.theme = theme;
+        const isDark = theme === 'dark';
+        button.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        localStorage.setItem('theme', theme);
+      }
+
+      setTheme(initial);
+
+      button.addEventListener('click', function () {
+        setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
+      });
+    })();
+  </script>
+</body>
+</html>

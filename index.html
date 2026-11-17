@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script>
+    (function () {
+      const stored = localStorage.getItem('theme');
+      const preferredDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = stored || (preferredDark ? 'dark' : 'light');
+    })();
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Renan Muta — Ph.D. student in Finance at The Wharton School, University of Pennsylvania.">
+  <title>Renan Muta</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell nav">
+      <a class="site-name" href="index.html">Renan Muta</a>
+      <nav aria-label="Primary navigation">
+        <a class="active" href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="media.html">Media</a>
+        <a href="Renan_Muta_CV.pdf" target="_blank" rel="noopener">CV</a>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch theme">
+          <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.4 15.5A8.5 8.5 0 0 1 8.5 3.6 8.5 8.5 0 1 0 20.4 15.5z"></path>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-shell">
+    <section class="profile">
+      <div class="photo-column">
+        <img class="profile-photo" src="Picture.jpeg" alt="Profile photo of Renan Muta">
+      </div>
+
+      <div class="profile-copy">
+        <h1>Renan Muta</h1>
+
+        <p class="position">
+          Ph.D. Student in Finance<br>
+          The Wharton School, University of Pennsylvania
+        </p>
+
+        <p>
+          I'm a third-year Ph.D. student in Finance at The Wharton School, University of Pennsylvania.
+          My research interests are in macro-finance and information economics.
+        </p>
+
+        <p>
+          Previously, I worked as a macroeconomist at Goldman Sachs and did my undergraduate
+          in Mathematical Economics at Penn. I was the recipient of the Bernard Shanbaum Prize
+          for Excellence in Economics and the Rose Undergraduate Research Award.
+        </p>
+
+        <div class="profile-links">
+          <a href="mailto:renanm@wharton.upenn.edu">Email</a>
+          <a href="Renan_Muta_CV.pdf" target="_blank" rel="noopener">CV</a>
+          <a href="https://www.linkedin.com/in/renan-muta/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const button = document.querySelector('.theme-toggle');
+      const stored = localStorage.getItem('theme');
+      const preferredDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initial = stored || (preferredDark ? 'dark' : 'light');
+
+      function setTheme(theme) {
+        root.dataset.theme = theme;
+        const isDark = theme === 'dark';
+        button.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        localStorage.setItem('theme', theme);
+      }
+
+      setTheme(initial);
+
+      button.addEventListener('click', function () {
+        setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
+      });
+    })();
+  </script>
+</body>
+</html>
