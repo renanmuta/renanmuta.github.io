@@ -171,6 +171,10 @@ p {
   font-weight: 600;
 }
 
+.research-section + .research-section {
+  margin-top: 46px;
+}
+
 .paper {
   margin-bottom: 22px;
 }
