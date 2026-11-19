@@ -46,7 +46,11 @@
         <p class="paper-line">
           <a class="paper-title" href="Papers/ReputationalInformationCycles.pdf" target="_blank" rel="noopener">Reputational Information Cycles</a>
           <span class="paper-authors">with Guillermo Ordoñez (November 2026)</span>
+          <button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-ric" aria-label="Show abstract" title="Show abstract"></button>
         </p>
+        <div class="abstract" id="abstract-ric" hidden>
+          <p>Reputational incentives can narrow disagreement among professional forecasters and make their consensus less accurate. In our model, skilled forecasters extract more information from a signal that contains a shared error. When evaluated relative to their peers, forecasters overweight that signal to demonstrate skill, amplifying the shared error in the consensus. In Bloomberg’s U.S. inflation survey, forecast errors carry larger ranking penalties and forecasts cluster more tightly when the inflation risk premium is high. We interpret high-premium periods as times when reputational stakes are greater. As those stakes rise and fall, the distortion in what forecasters report changes, generating cycles in how much information the consensus conveys.</p>
+        </div>
       </article>
     </section>
 
@@ -57,7 +61,11 @@
         <p class="paper-line">
           <span class="paper-title">Building the Housing Ladder</span>
           <span class="paper-authors">with João F. Gomes and Tim Landvoigt</span>
+          <button class="abstract-toggle" type="button" aria-expanded="false" aria-controls="abstract-bhl" aria-label="Show abstract" title="Show abstract"></button>
         </p>
+        <div class="abstract" id="abstract-bhl" hidden>
+          <p>Should expensive cities subsidize high-end construction, affordable rental housing, or starter homes? In our quantitative model of a city, households of different wealth choose between renting and owning homes of increasing value, and developers decide which type of housing to build. Calibrated to the San Francisco MSA, the model implies that subsidizing entry-level owner-occupied homes adds the most housing and lowers rents the most, because it crowds out less dense, more expensive homes and enables renters to buy. At equal fiscal cost, this policy beats subsidies targeted at other segments as well as broad supply-side and demand-side subsidies. No policy makes every household better off, because lower house prices erode the wealth of the richest households. When gentrification raises housing costs and reduces welfare of the poorest residents, modest upzoning stabilizes long-run rents and balances the gains from gentrification across wealth levels.</p>
+        </div>
       </article>
     </section>
   </main>
@@ -82,6 +90,17 @@
         setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
       });
     })();
+
+    document.querySelectorAll('.abstract-toggle').forEach(function (toggle) {
+      const panel = document.getElementById(toggle.getAttribute('aria-controls'));
+      toggle.addEventListener('click', function () {
+        const open = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!open));
+        toggle.setAttribute('aria-label', open ? 'Show abstract' : 'Hide abstract');
+        toggle.title = open ? 'Show abstract' : 'Hide abstract';
+        panel.hidden = open;
+      });
+    });
   </script>
 </body>
 </html>
